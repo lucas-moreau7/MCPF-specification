@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mcpf.dev/schemas/status-list-v1.json",
+  "title": "StatusList2021 Credential",
+  "description": "Bitstring-based revocation list",
+  "type": "object",
+  "required": ["@context", "type", "issuer", "issuanceDate", "credentialSubject"],
+  "properties": {
+    "@context": {
+      "type": "array",
+      "contains": {"const": "https://w3id.org/vc/status-list/2021/v1"}
+    },
+    "type": {
+      "type": "array",
+      "contains": {"enum": ["VerifiableCredential", "StatusList2021Credential"]}
+    },
+    "issuer": {"type": "string", "pattern": "^did:"},
+    "issuanceDate": {"type": "string", "format": "date-time"},
+    "credentialSubject": {
+      "type": "object",
+      "required": ["id", "type", "statusPurpose", "encodedList"],
+      "properties": {
+        "id": {"type": "string"},
+        "type": {"const": "StatusList2021"},
+        "statusPurpose": {"type": "string", "enum": ["revocation", "suspension"]},
+        "encodedList": {"type": "string", "contentEncoding": "base64"}
+      }
+    }
+  }
+}

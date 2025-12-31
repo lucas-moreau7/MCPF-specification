@@ -1,0 +1,37 @@
+sequenceDiagram
+    participant Orch as Orchestrator Agent
+    participant ANS as ANS
+    participant A2A as A2A Registry
+    participant DID as DID/VC Service
+    participant Spec as Specialist Agent
+    
+    Note over Orch,Spec: Orchestrator needs fraud analysis
+    
+    Orch->>ANS: 1. Resolve("fraud-detector.finance.bank.agent")
+    ANS-->>Orch: Returns DID + agent card
+    
+    Orch->>A2A: 2. Check relationship(from=orch, to=spec)
+    A2A-->>Orch: Returns relationship VC
+    
+    Orch->>DID: 3. Verify relationship VC
+    DID-->>Orch: Signature valid + not revoked
+    
+    Orch->>Orch: 4. Create delegation record
+    Orch->>Orch: 5. Sign with private key
+    
+    Orch->>Spec: 6. Delegate task + proof
+    
+    Spec->>DID: 7. Verify delegation signature
+    DID-->>Spec: Valid signature
+    
+    Spec->>A2A: 8. Validate scope
+    A2A-->>Spec: Permissions authorized
+    
+    rect rgb(200, 255, 200)
+        Note over Spec: Delegation verified ✓
+    end
+    
+    Spec->>Spec: 9. Execute task
+    Spec-->>Orch: 10. Return result
+    
+    Spec->>A2A: 11. Log delegation event

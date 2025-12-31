@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mcpf.dev/schemas/ans-name-v1.json",
+  "title": "ANS Name Record",
+  "description": "Agent Name Service name registration",
+  "type": "object",
+  "required": ["ansName", "did", "agentCard"],
+  "properties": {
+    "ansName": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+(\\.[a-z0-9-]+)*\\.agent$"
+    },
+    "did": {"type": "string", "pattern": "^did:"},
+    "agentCard": {
+      "type": "object",
+      "required": ["name", "capabilities", "endpoint"],
+      "properties": {
+        "name": {"type": "string"},
+        "description": {"type": "string"},
+        "capabilities": {"type": "array", "items": {"type": "string"}},
+        "protocols": {"type": "array", "items": {"type": "string"}},
+        "endpoint": {"type": "string", "format": "uri"}
+      }
+    },
+    "certificate": {
+      "type": "object",
+      "properties": {
+        "subject": {"type": "string"},
+        "issuer": {"type": "string"},
+        "validFrom": {"type": "string", "format": "date-time"},
+        "validTo": {"type": "string", "format": "date-time"}
+      }
+    },
+    "ttl": {"type": "integer", "minimum": 60},
+    "status": {"type": "string", "enum": ["active", "inactive", "revoked"]}
+  }
+}

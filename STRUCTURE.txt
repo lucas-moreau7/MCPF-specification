@@ -1,0 +1,48 @@
+MCPF-specification/
+├── README.md                              [Professional README with GitHub badges]
+├── CONTRIBUTING.md                        [Contribution guidelines]
+├── LICENSE-MIT                            [MIT License for code/schemas]
+├── LICENSE-CC-BY-4.0                      [CC BY 4.0 for documentation]
+├── .gitignore                             [Git ignore rules]
+├── STRUCTURE.txt                          [This file - repository structure]
+│
+├── specs/                                 [Core specification documents]
+│   ├── MCPF-core.md                      [~17 KB - DID/VC infrastructure]
+│   ├── MCPF-mcp-registry.md              [~25 KB - MCP registry specification]
+│   ├── MCPF-ans.md                       [~17 KB - Agent Name Service]
+│   ├── MCPF-a2a-registry.md              [~16 KB - Agent-to-Agent registry]
+│   └── MCPF-interop.md                   [~23 KB - Integration specification]
+│
+├── schemas/                               [JSON Schema files]
+│   ├── mcp-server-credential.json        [W3C VC for MCP servers]
+│   ├── agent-credential.json             [W3C VC for AI agents]
+│   ├── ans-name.json                     [ANS name record schema]
+│   ├── a2a-policy.json                   [Delegation policy schema]
+│   └── status-list.json                  [StatusList2021 schema]
+│
+├── diagrams/                              [Mermaid architecture diagrams]
+│   ├── system-architecture.mmd           [Complete MCPF architecture]
+│   ├── mcp-verification-workflow.mmd     [MCP server verification flow]
+│   ├── a2a-delegation-workflow.mmd       [Agent delegation workflow]
+│   ├── ans-resolution-flow.mmd           [ANS name resolution flow]
+│   └── revocation-propagation.mmd        [Revocation event propagation]
+│
+├── examples/                              [Example files for quick reference]
+│   ├── did-document-example.json         [Sample DID document]
+│   ├── mcp-server-credential-example.json [Sample MCP server credential]
+│   └── agent-credential-example.json     [Sample agent credential]
+│
+└── .github/                               [GitHub configuration]
+    └── workflows/                         [CI/CD workflows]
+        ├── validate-schemas.yml          [Validate JSON schemas]
+        └── render-diagrams.yml           [Auto-render Mermaid diagrams]
+
+Total Files: 25
+Total Specs: ~98 KB (22,500+ lines)
+Schemas: 5 JSON Schema files
+Diagrams: 5 Mermaid diagrams
+Examples: 3 complete examples
+Workflows: 2 GitHub Actions
+
+All content is internationalized (no country-specific references).
+Ready for upload to GitHub: https://github.com/MCPTrustFramework/MCPF-specification

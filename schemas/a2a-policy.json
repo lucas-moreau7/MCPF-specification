@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mcpf.dev/schemas/a2a-policy-v1.json",
+  "title": "A2A Delegation Policy",
+  "description": "Policy for agent-to-agent delegation",
+  "type": "object",
+  "required": ["policyId", "name", "version", "rules"],
+  "properties": {
+    "policyId": {"type": "string"},
+    "name": {"type": "string"},
+    "version": {"type": "string"},
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ruleId", "condition", "requirements"],
+        "properties": {
+          "ruleId": {"type": "string"},
+          "condition": {"type": "object"},
+          "requirements": {
+            "type": "object",
+            "properties": {
+              "toAgent": {
+                "type": "object",
+                "properties": {
+                  "role": {"type": "string"},
+                  "capabilities": {"type": "array", "items": {"type": "string"}}
+                }
+              },
+              "permissions": {
+                "type": "object",
+                "properties": {
+                  "allowed": {"type": "array", "items": {"type": "string"}},
+                  "denied": {"type": "array", "items": {"type": "string"}}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

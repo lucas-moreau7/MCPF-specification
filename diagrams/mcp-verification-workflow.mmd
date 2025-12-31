@@ -1,0 +1,32 @@
+sequenceDiagram
+    participant Agent as AI Agent
+    participant MCP as MCP Registry
+    participant DID as DID/VC Service
+    participant Server as MCP Server
+    
+    Note over Agent,Server: Agent needs to invoke weather API
+    
+    Agent->>MCP: 1. Search(capability="getCurrentWeather")
+    MCP-->>Agent: Returns matching servers
+    
+    Agent->>MCP: 2. Get credential(server_did)
+    MCP-->>Agent: Returns server VC
+    
+    Agent->>DID: 3. Resolve DID
+    DID-->>Agent: Returns DID document + public key
+    
+    Agent->>Agent: 4. Verify VC signature
+    
+    Agent->>DID: 5. Check StatusList
+    DID-->>Agent: Returns bit=0 (not revoked)
+    
+    Agent->>Agent: 6. Validate capabilities & scope
+    
+    rect rgb(200, 255, 200)
+        Note over Agent: All checks passed ✓
+    end
+    
+    Agent->>Server: 7. Invoke tool(params)
+    Server-->>Agent: Returns result
+    
+    Agent->>MCP: 8. Log audit event

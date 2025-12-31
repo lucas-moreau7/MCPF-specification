@@ -1,0 +1,33 @@
+name: Render Mermaid Diagrams
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'diagrams/*.mmd'
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install Mermaid CLI
+      run: npm install -g @mermaid-js/mermaid-cli
+    
+    - name: Render diagrams to SVG
+      run: |
+        for file in diagrams/*.mmd; do
+          output="${file%.mmd}.svg"
+          mmdc -i "$file" -o "$output" -b transparent
+          echo "✓ Rendered $file → $output"
+        done
+    
+    - name: Commit rendered diagrams
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add diagrams/*.svg
+        git diff --quiet && git diff --staged --quiet || git commit -m "Auto-render diagrams to SVG"
+        git push

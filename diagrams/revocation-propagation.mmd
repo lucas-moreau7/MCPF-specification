@@ -1,0 +1,47 @@
+sequenceDiagram
+    participant Incident as Security Incident
+    participant Admin as Trust Anchor Admin
+    participant DID as DID/VC Service
+    participant Status as StatusList
+    participant A2A as A2A Registry
+    participant ANS as ANS
+    participant Cache as CDN/Cache
+    participant Agent as AI Agents
+    
+    Note over Incident,Agent: Agent compromised - immediate revocation needed
+    
+    Incident->>Admin: Alert: Compromised credentials
+    
+    rect rgb(255, 200, 200)
+        Note over Admin: Investigation & Decision
+    end
+    
+    Admin->>DID: Revoke credential(agent_did)
+    
+    DID->>Status: Update StatusList<br/>Set bit[index]=1
+    Status-->>DID: Bit updated
+    
+    DID->>A2A: Notify revocation
+    A2A->>A2A: Mark agent as revoked
+    A2A->>A2A: Invalidate cache
+    
+    DID->>ANS: Notify revocation
+    ANS->>ANS: Mark name as inactive
+    ANS->>ANS: Invalidate cache
+    
+    DID->>Cache: Purge cached records
+    Cache->>Cache: Clear all caches for agent_did
+    
+    DID->>Agent: Send revocation notification
+    
+    Note over Status,Agent: Propagation time: <5 seconds
+    
+    Agent->>Agent: Next verification attempt
+    Agent->>Status: Check StatusList
+    Status-->>Agent: bit[index]=1 (REVOKED)
+    
+    rect rgb(255, 200, 200)
+        Agent->>Agent: Verification FAILS ✗
+    end
+    
+    Agent->>Admin: Log failed verification
