@@ -8,17 +8,17 @@
 
 **The MCP Trust Framework (MCPF)** provides a complete trust infrastructure for AI agent systems, enabling secure agent-to-agent delegation and tool verification through decentralized identifiers (DIDs) and verifiable credentials (VCs).
 
-## 🌟 What is MCPF?
+##  What is MCPF?
 
 MCPF solves the trust problem in agentic AI by providing:
 
-- **🔐 Agent Identity** - Every AI agent has a verifiable DID
-- **✅ Tool Verification** - MCP servers validated with signed credentials
-- **🤝 Delegation Control** - Agent-to-agent trust policies
-- **🔍 Discovery** - Human-readable agent names (ANS)
-- **⚡ Instant Revocation** - Real-time credential revocation (<5 sec)
+- ** Agent Identity** - Every AI agent has a verifiable DID
+- ** Tool Verification** - MCP servers validated with signed credentials
+- ** Delegation Control** - Agent-to-agent trust policies
+- ** Discovery** - Human-readable agent names (ANS)
+- ** Instant Revocation** - Real-time credential revocation (<5 sec)
 
-## 📚 Specification Documents
+##  Specification Documents
 
 ### Core Specifications
 
@@ -52,7 +52,7 @@ MCPF solves the trust problem in agentic AI by providing:
 | [ans-resolution-flow.mmd](diagrams/ans-resolution-flow.mmd) | ANS name resolution | Mermaid |
 | [revocation-propagation.mmd](diagrams/revocation-propagation.mmd) | Revocation event flow | Mermaid |
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### For Readers
 
@@ -83,7 +83,7 @@ npm install @mcpf/sdk
 ```
 See: [MCPF-typescript](https://github.com/MCPTrustFramework/MCPF-typescript)
 
-## 🏗️ Architecture Overview
+##  Architecture Overview
 
 MCPF consists of four integrated components:
 
@@ -112,7 +112,7 @@ MCPF consists of four integrated components:
 
 See [system-architecture.mmd](diagrams/system-architecture.mmd) for detailed diagram.
 
-## 📖 Examples
+##  Examples
 
 Complete working examples available at [MCPF-examples](https://github.com/MCPTrustFramework/MCPF-examples):
 
@@ -129,32 +129,32 @@ Complete working examples available at [MCPF-examples](https://github.com/MCPTru
 | [MCPF-registry](https://github.com/MCPTrustFramework/MCPF-registry) | MCP Trust Registry | Python | Alpha |
 | [MCPF-a2a-registry](https://github.com/MCPTrustFramework/MCPF-a2a-registry) | A2A Trust Registry | Python | Alpha |
 
-## 📜 Standards Compliance
+##  Standards Compliance
 
 MCPF is built on established W3C and IETF standards:
 
 ### W3C Standards
-- ✅ [DID Core v1.0](https://www.w3.org/TR/did-core/)
-- ✅ [VC Data Model v1.1](https://www.w3.org/TR/vc-data-model/)
-- ✅ [StatusList2021](https://w3c-ccg.github.io/vc-status-list-2021/)
+-  [DID Core v1.0](https://www.w3.org/TR/did-core/)
+-  [VC Data Model v1.1](https://www.w3.org/TR/vc-data-model/)
+-  [StatusList2021](https://w3c-ccg.github.io/vc-status-list-2021/)
 
 ### IETF Standards
-- ✅ [OAuth 2.0](https://www.rfc-editor.org/rfc/rfc6749) (RFC 6749)
-- ✅ [JWT](https://www.rfc-editor.org/rfc/rfc7519) (RFC 7519)
-- ✅ [Ed25519](https://www.rfc-editor.org/rfc/rfc8032) (RFC 8032)
+-  [OAuth 2.0](https://www.rfc-editor.org/rfc/rfc6749) (RFC 6749)
+-  [JWT](https://www.rfc-editor.org/rfc/rfc7519) (RFC 7519)
+-  [Ed25519](https://www.rfc-editor.org/rfc/rfc8032) (RFC 8032)
 
 ### Protocol Compatibility
 - ✅ [MCP (Model Context Protocol)](https://modelcontextprotocol.io)
 - ✅ [Google A2A Protocol](https://github.com/google/agent-protocol)
 
-## 🌐 Production Deployments
+##  Production Deployments
 
 **Veritrust** operates the first production MCPF deployment:
 - **ANS:** https://ans.veritrust.vc
 - **MCP Registry:** https://mcp.veritrust.vc
 - **A2A Demo:** https://a2a.veritrust.vc
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
@@ -164,7 +164,7 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 - Documentation improvements
 - Test coverage
 
-## 📝 License
+##  License
 
 This specification is released under dual license:
 - **Code/Schemas:** [MIT License](LICENSE-MIT)
@@ -172,21 +172,21 @@ This specification is released under dual license:
 
 This allows free use, modification, and distribution for both commercial and non-commercial purposes.
 
-## 📞 Contact
+##  Contact
 
 - **Website:** https://mcpf.dev
 - **Email:** hello@mcpf.dev
 - **GitHub:** https://github.com/MCPTrustFramework
 - **Discussions:** https://github.com/MCPTrustFramework/MCPF-specification/discussions
 
-## 🗺️ Roadmap
+##  Roadmap
 
 **v1.0.0-alpha** (Current)
-- ✅ Core specifications complete
-- ✅ JSON schemas published
-- ✅ Reference implementations (Python)
-- 🚧 TypeScript SDK (in progress)
-- 🚧 Conformance tests (in progress)
+-  Core specifications complete
+-  JSON schemas published
+-  Reference implementations (Python)
+-  TypeScript SDK (in progress)
+-  Conformance tests (in progress)
 
 **v1.0.0-beta** (Q1 2026)
 - Production-ready reference implementations
